@@ -1,1 +1,1 @@
-console.warn("hello people");
+console.log("hello people");
