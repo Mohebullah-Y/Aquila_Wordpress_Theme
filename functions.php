@@ -1,14 +1,19 @@
 <?php
+//wordpress automatically includes fucntions.php file. it is not need to include this file manually
 /**
  * Theme Functions
  * 
  * @package Aquila
  */
-// wordpress automatically includes fucntions.php file. it is not need to include this file manually
-function add_script() {
-    echo '<script>alert("Welcome to my site!");</script>';
+if(!defined('AQUILA_DIR_PATH')){
+    define('AQUILA_DIR_PATH',untrailingslashit(get_template_directory()));
 }
-add_action('wp_body_open', 'add_script');
+require_once AQUILA_DIR_PATH . '/inc/helpers/autoloader.php';
+
+function aquila_get_theme_instance(){
+    \AQUILA_THEME\Inc\AQUILA_THEME::get_instance();
+}
+aquila_get_theme_instance();
 
 function aquila_enqueue_scripts(){
     // Register Styles
