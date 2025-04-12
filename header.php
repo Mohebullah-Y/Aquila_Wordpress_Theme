@@ -14,7 +14,7 @@
     <?php wp_head();?>
     <!-- in order to insert style and script dynamically we should use  -->
 </head>
-<!-- body_class() adds bunch of classes for body tag every page  -->
+<!-- body_class() adds bunch of classes for body tag of every page  -->
 <body <?php body_class("hello-class"); ?>>
   <?php
      if(function_exists('wp_body_open')){
