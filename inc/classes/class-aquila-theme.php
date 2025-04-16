@@ -21,5 +21,23 @@ class AQUILA_THEME{
     /**
      * Actions
      */
+    add_action('after_setup_theme',[$this,'setup_theme']);
+   }
+   public function setup_theme(){
+    //add_theme_support( 'title-tag' ) let wordpress to manage document title which means this theme does not use hard coded title tag and expects wordpress to provide it for us 
+    add_theme_support( 'title-tag' );
+
+    add_theme_support( 'custom-logo', [
+      'header-text'          => ['site-title', 'site-description' ],
+      'height'               => 100,
+		'width'                => 400,
+		'flex-height'          => true,
+		'flex-width'           => true,
+		'unlink-homepage-logo' => true, 
+    ] );
+    add_theme_support( 'custom-background', [
+      'default-color' => 'fff',
+      'default-image' => '',
+  ] );
    }
 }
