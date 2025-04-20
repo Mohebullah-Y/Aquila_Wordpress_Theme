@@ -5,7 +5,7 @@
  * @package Aquila
  */
 //We should not add every thing just in AQUILA_THEME class so we use another class to divide functionality
-namespace Aquila_Theme\Inc;
+namespace AQUILA_THEME\Inc;
 
 use AQUILA_THEME\Inc\Traits\Singleton;
 
