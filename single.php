@@ -1,6 +1,6 @@
 <?php
 /**
-* Main template file. 
+* Single post template. 
 *
 * @package Aquila
 */
@@ -8,7 +8,7 @@
 get_header();
 ?>
     <div class="content">
-       Content Index
+       <?php esc_html_e('Single Post','aquila')?>
     </div>
 <?php
 // include_once "footer.php";
