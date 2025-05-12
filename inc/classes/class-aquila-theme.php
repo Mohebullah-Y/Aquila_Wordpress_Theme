@@ -47,6 +47,9 @@ class AQUILA_THEME{
    
    //add post thumbnail feature
     add_theme_support( 'post-thumbnails');
+    
+   // Register image sizes
+    add_image_size('featured-thumbnail', 350, 233, true);
    
     //Instead of refreshing the whole page, only the part of the page with the updated widget is refreshed (partial refresh).
     add_theme_support( 'customize-selective-refresh-widgets');
