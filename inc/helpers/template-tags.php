@@ -54,3 +54,24 @@ function aquila_posted_by(){
    );
    echo '<span class="byline text-secondary">'. $byline .'</span>';
 }
+
+
+function aquila_pagination() {
+   $allowed_tags = [
+      'span' => [
+         'class' => []
+      ],
+      'a' => [
+         'class' => [],
+         'href' => []
+      ]
+   ];
+   $args = [
+      'before_page_number' => '<span class="btn border border-secondary mr-2 mb-2">',
+      'after_page_number' => '</span>'
+   ];
+   $links = paginate_links($args);
+   if($links){
+      printf('<nav class="aquila-pagination clearfix">%s</nav>', wp_kses($links, $allowed_tags));
+   }
+}
