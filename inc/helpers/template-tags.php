@@ -55,6 +55,28 @@ function aquila_posted_by(){
    echo '<span class="byline text-secondary">'. $byline .'</span>';
 }
 
+function aquila_the_excerpt($trim_character_count = 0) {
+   if(! has_excerpt() || 0 === $trim_character_count){
+      the_excerpt();
+      return;
+   }
+   $excerpt = wp_strip_all_tags(get_the_excerpt());
+   if (strlen($excerpt) > $trim_character_count) {
+    $excerpt = substr($excerpt, 0, $trim_character_count);
+    $excerpt = substr($excerpt, 0, strrpos($excerpt, ' ')); // Avoid word break
+   }
+   echo $excerpt . '...';
+}
+
+function aquila_excerpt_more($more = '') {
+   if(! is_single()){
+      $more = sprintf('<button class="mt-4 btn btn-info"><a class="aquila-read-more text-white" href="%1$s">%2$s</a></button>',
+         get_permalink(get_the_ID()),
+         __('Read more', 'aquila')
+   );
+ }
+  return $more;
+}
 
 function aquila_pagination() {
    $allowed_tags = [
