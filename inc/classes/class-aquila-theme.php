@@ -16,6 +16,7 @@ class AQUILA_THEME{
      Assets::get_instance();
      Menus::get_instance();
      Meta_Boxes::get_instance();
+     Sidebars::get_instance();
 
      $this->setup_hooks();
    }
@@ -52,6 +53,9 @@ class AQUILA_THEME{
    // Register image sizes
     add_image_size('featured-thumbnail', 350, 233, true);
    
+    //Add widgets support
+    add_theme_support( 'widgets' );
+
     //Instead of refreshing the whole page, only the part of the page with the updated widget is refreshed (partial refresh).
     add_theme_support( 'customize-selective-refresh-widgets');
  

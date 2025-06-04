@@ -1,15 +1,15 @@
 <?php
 /**
- * Enqueue theme assets
+ * Themes Sidebar
  * 
  * @package Aquila
  */
-//We should not add every thing just in AQUILA_THEME class so we use another class to divide functionality
-namespace AQUILA_THEME\Inc;
+
+ namespace AQUILA_THEME\Inc;
 
 use AQUILA_THEME\Inc\Traits\Singleton;
 
-class Assets {
+class Sidebars {
   use Singleton;
   protected function __construct(){
     //  wp_die('hello');
@@ -21,23 +21,27 @@ class Assets {
     /**
      * Actions
      */
-    add_action('wp_enqueue_scripts',[$this,'register_styles']);
-    add_action('wp_enqueue_scripts',[$this,'register_scripts']);
+    add_action('widgets_init', [$this, 'register_sidebars']);
    }
-   public function register_styles(){
-    // Register Styles
-    wp_register_style('style-css', get_stylesheet_uri(), ['bootstrap-css'], filemtime(AQUILA_DIR_PATH . '/style.css'), 'all');
-    wp_register_style('bootstrap-css', AQUILA_DIR_URI . '/assets/src/library/css/bootstrap.min.css', [], false, 'all');
-    // Enqueue Styles
-    wp_enqueue_style('style-css');
-    wp_enqueue_style('bootstrap-css');   
-  }
-   public function register_scripts(){
-    // Register Scripts
-    wp_register_script('main-js', AQUILA_DIR_URI . '/assets/main.js', ['bootstrap-js'], filemtime(AQUILA_DIR_PATH . '/assets/main.js'), true);
-    wp_register_script('bootstrap-js', AQUILA_DIR_URI . '/assets/src/library/js/bootstrap.bundle.min.js', ['jquery'], false, true);    
-    // Enqueue Scripts
-    wp_enqueue_script('main-js');
-    wp_enqueue_script('bootstrap-js');
+   //The register_sidebar is custom function not a built in function
+   public function register_sidebars() {
+        register_sidebar( [
+            'name'          => __( 'Sidebar', 'aquila' ),
+            'id'            => 'sidebar-1',
+            'description'   => __( 'Main sidebar', 'aquila' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ] );
+        register_sidebar( [
+            'name'          => __( 'Footer', 'aquila' ),
+            'id'            => 'sidebar-2',
+            'description'   => __( 'Footer sidebar', 'aquila' ),
+            'before_widget' => '<div id="%1$s" class="widget widget-footer cell column %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ] );
    }
 }
