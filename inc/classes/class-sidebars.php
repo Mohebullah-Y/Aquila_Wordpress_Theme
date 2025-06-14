@@ -22,6 +22,7 @@ class Sidebars {
      * Actions
      */
     add_action('widgets_init', [$this, 'register_sidebars']);
+    add_action('widgets_init', [$this, 'register_clock_widget']);
    }
    //The register_sidebar is custom function not a built in function
    public function register_sidebars() {
@@ -43,5 +44,10 @@ class Sidebars {
             'before_title'  => '<h3 class="widget-title">',
             'after_title'   => '</h3>',
         ] );
+   }
+   
+   public function register_clock_widget(){
+       // add class name of our widget as parameter of following function    
+       register_widget('AQUILA_THEME\Inc\Clock_Widget');
    }
 }
