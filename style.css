@@ -33,3 +33,10 @@
    background-color: gray;
    color: #FFFFFF;
 }
+
+/* Home Page Posts Carousel */
+
+.posts-carousel img {
+   width: 500px;
+   height: 500px;
+}

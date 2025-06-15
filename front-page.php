@@ -9,4 +9,7 @@ get_header();
 
 <div>Front Page</div>
 
-<?php get_footer(); ?>
+<?php
+ get_template_part('template-parts/components/posts-carousel');
+ get_footer();
+?>

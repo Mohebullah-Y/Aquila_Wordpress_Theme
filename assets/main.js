@@ -65,3 +65,15 @@
 
 	new Clock();
 } )( jQuery );
+
+
+// Post Carousel Script
+
+  jQuery(document).ready(function(){
+	jQuery('.posts-carousel').slick({
+      autoplay: true,
+      autoplaySpeed: 1000,
+	  slidesToShow: 3,
+      slidesToScroll: 1
+	});
+ });
