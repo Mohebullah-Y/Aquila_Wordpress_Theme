@@ -19,6 +19,7 @@ class AQUILA_THEME{
      Sidebars::get_instance();
      Register_Post_Types::get_instance();
      Register_Taxonomies::get_instance();
+     Archive_Settings::get_instance();
 
      $this->setup_hooks();
    }
